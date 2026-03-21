@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HabitFlow Tracker</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="hero card">
+        <div>
+          <p class="eyebrow">HabitFlow</p>
+          <h1>Build streaks that actually stick.</h1>
+          <p class="hero-copy">
+            Track your daily habits, celebrate momentum, and sync everything with
+            Firebase so your progress stays safe.
+          </p>
+        </div>
+        <div class="hero-stats" aria-label="Habit tracker summary">
+          <article>
+            <span id="habit-count">0</span>
+            <p>Active habits</p>
+          </article>
+          <article>
+            <span id="completion-rate">0%</span>
+            <p>Today complete</p>
+          </article>
+          <article>
+            <span id="best-streak">0</span>
+            <p>Best streak</p>
+          </article>
+        </div>
+      </header>
+
+      <main class="layout">
+        <section class="card setup-panel" aria-labelledby="firebase-title">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Step 1</p>
+              <h2 id="firebase-title">Connect Firebase</h2>
+            </div>
+            <span id="firebase-status" class="status-pill offline">Not connected</span>
+          </div>
+          <p class="panel-copy">
+            Paste your Firebase web app config and Firestore collection name below.
+            Your data syncs as soon as the connection succeeds.
+          </p>
+
+          <form id="firebase-form" class="stack-lg">
+            <label class="field">
+              <span>Firebase project config (JSON)</span>
+              <textarea
+                id="firebase-config"
+                rows="8"
+                placeholder='{
+  "apiKey": "...",
+  "authDomain": "...",
+  "projectId": "...",
+  "storageBucket": "...",
+  "messagingSenderId": "...",
+  "appId": "..."
+}'
+              ></textarea>
+            </label>
+
+            <label class="field">
+              <span>Firestore collection</span>
+              <input
+                id="collection-name"
+                type="text"
+                value="habits"
+                placeholder="habits"
+                maxlength="64"
+              />
+            </label>
+
+            <div class="inline-actions">
+              <button type="submit" class="primary-btn">Connect & Load Habits</button>
+              <button type="button" id="disconnect-btn" class="ghost-btn">Disconnect</button>
+            </div>
+          </form>
+
+          <p id="firebase-message" class="helper-text">
+            Tip: enable Cloud Firestore in your Firebase project before connecting.
+          </p>
+        </section>
+
+        <section class="card composer" aria-labelledby="create-title">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Step 2</p>
+              <h2 id="create-title">Create a habit</h2>
+            </div>
+          </div>
+
+          <form id="habit-form" class="habit-form">
+            <label class="field">
+              <span>Habit name</span>
+              <input id="habit-name" type="text" maxlength="80" placeholder="Drink 2L of water" required />
+            </label>
+
+            <label class="field">
+              <span>Category</span>
+              <input id="habit-category" type="text" maxlength="40" placeholder="Health, Study, Fitness" />
+            </label>
+
+            <label class="field">
+              <span>Target days per week</span>
+              <input id="habit-target" type="number" min="1" max="7" value="7" required />
+            </label>
+
+            <label class="field">
+              <span>Motivation note</span>
+              <textarea id="habit-note" rows="3" maxlength="180" placeholder="Why this habit matters to you"></textarea>
+            </label>
+
+            <button type="submit" class="primary-btn stretch">Add habit</button>
+          </form>
+        </section>
+
+        <section class="card habits-panel" aria-labelledby="habits-title">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Step 3</p>
+              <h2 id="habits-title">Track today</h2>
+            </div>
+            <span id="today-label" class="today-label"></span>
+          </div>
+
+          <div id="empty-state" class="empty-state">
+            <h3>No habits yet</h3>
+            <p>Add your first habit after connecting Firebase to start tracking streaks.</p>
+          </div>
+
+          <div id="habit-list" class="habit-list" aria-live="polite"></div>
+        </section>
+      </main>
+    </div>
+
+    <template id="habit-card-template">
+      <article class="habit-card">
+        <div class="habit-card__header">
+          <div>
+            <span class="habit-category"></span>
+            <h3 class="habit-name"></h3>
+          </div>
+          <button class="danger-btn delete-btn" type="button">Delete</button>
+        </div>
+
+        <p class="habit-note"></p>
+
+        <div class="habit-meta">
+          <span class="target-pill"></span>
+          <span class="streak-pill"></span>
+        </div>
+
+        <div class="habit-actions">
+          <button class="complete-btn primary-btn" type="button">Mark complete</button>
+          <button class="ghost-btn undo-btn" type="button">Undo today</button>
+        </div>
+
+        <div class="history-block">
+          <h4>Last 7 days</h4>
+          <div class="history-dots"></div>
+        </div>
+      </article>
+    </template>
+
+    <script type="module" src="app.js"></script>
+  </body>
+</html>
