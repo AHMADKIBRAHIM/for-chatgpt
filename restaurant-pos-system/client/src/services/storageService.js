@@ -1,0 +1,1 @@
+export default {get:(k,f=null)=>{const v=localStorage.getItem(k);if(!v)return f;try{return JSON.parse(v);}catch{return v;}},set:(k,v)=>localStorage.setItem(k,typeof v==='string'?v:JSON.stringify(v)),remove:(k)=>localStorage.removeItem(k)};

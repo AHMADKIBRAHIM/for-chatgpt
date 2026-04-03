@@ -1,0 +1,1 @@
+import { Router } from "express"; import { asyncHandler } from "../../shared/utils/asyncHandler.js"; import * as c from "./products.controller.js"; const r=Router(); r.get("/",asyncHandler(c.list)); r.get("/:id",asyncHandler(c.getById)); r.post("/",asyncHandler(c.createOne)); r.patch("/:id",asyncHandler(c.updateOne)); r.delete("/:id",asyncHandler(c.deleteOne)); export default r;

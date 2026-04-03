@@ -1,0 +1,1 @@
+import mongoose from "mongoose"; const schema=new mongoose.Schema({order:{type:mongoose.Schema.Types.ObjectId,ref:"Order"},method:String,amount:Number,status:{type:String,default:"pending"},transactionRef:String},{timestamps:true}); export default mongoose.model("Payment",schema);

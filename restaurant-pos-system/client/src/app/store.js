@@ -1,0 +1,12 @@
+import { configureStore } from '@reduxjs/toolkit';
+import auth from '../features/auth/authSlice';
+import categories from '../features/categories/categoriesSlice';
+import products from '../features/products/productsSlice';
+import orders from '../features/orders/ordersSlice';
+import cart from '../features/cart/cartSlice';
+import kitchen from '../features/kitchen/kitchenSlice';
+import tables from '../features/tables/tablesSlice';
+import users from '../features/users/usersSlice';
+import reports from '../features/reports/reportsSlice';
+import settings from '../features/settings/settingsSlice';
+export const store=configureStore({reducer:{auth,categories,products,orders,cart,kitchen,tables,users,reports,settings}});

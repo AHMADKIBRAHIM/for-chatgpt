@@ -1,0 +1,1 @@
+import mongoose from "mongoose"; const schema=new mongoose.Schema({name:String,capacity:Number,status:{type:String,default:"available"}},{timestamps:true}); export default mongoose.model("Table",schema);

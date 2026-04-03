@@ -1,0 +1,1 @@
+import Order from "./order.model.js"; export const findAll=()=>Order.find(); export const findById=(id)=>Order.findById(id); export const createOne=(d)=>Order.create(d); export const updateById=(id,d)=>Order.findByIdAndUpdate(id,d,{new:true}); export const deleteById=(id)=>Order.findByIdAndDelete(id);

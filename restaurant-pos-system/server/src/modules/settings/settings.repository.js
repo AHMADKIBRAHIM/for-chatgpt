@@ -1,0 +1,1 @@
+import Setting from "./setting.model.js"; export const findAll=()=>Setting.find(); export const findById=(id)=>Setting.findById(id); export const createOne=(d)=>Setting.create(d); export const updateById=(id,d)=>Setting.findByIdAndUpdate(id,d,{new:true}); export const deleteById=(id)=>Setting.findByIdAndDelete(id);

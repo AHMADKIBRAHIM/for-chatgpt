@@ -1,0 +1,1 @@
+import { Router } from "express"; import { asyncHandler } from "../../shared/utils/asyncHandler.js"; import { getSalesSummaryController } from "./reports.controller.js"; const r=Router(); r.get("/sales-summary",asyncHandler(getSalesSummaryController)); export default r;

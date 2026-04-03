@@ -1,0 +1,1 @@
+import { useSelector } from "react-redux"; export default function usePermissions(){ const role=useSelector(s=>s.auth.user?.role); return {role,isAdmin:role==="admin",canManage:["admin","manager"].includes(role)}; }

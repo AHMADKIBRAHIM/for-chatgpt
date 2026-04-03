@@ -1,0 +1,1 @@
+import Table from "./table.model.js"; export const findAll=()=>Table.find(); export const findById=(id)=>Table.findById(id); export const createOne=(d)=>Table.create(d); export const updateById=(id,d)=>Table.findByIdAndUpdate(id,d,{new:true}); export const deleteById=(id)=>Table.findByIdAndDelete(id);

@@ -1,0 +1,1 @@
+import { StatusCodes } from "http-status-codes"; import { apiResponse } from "../../shared/utils/apiResponse.js"; import { salesSummary } from "./reports.service.js"; export const getSalesSummaryController=async(req,res)=>apiResponse(res,StatusCodes.OK,"Sales summary",await salesSummary());

@@ -1,0 +1,1 @@
+import Category from "./category.model.js"; export const findAll=()=>Category.find(); export const findById=(id)=>Category.findById(id); export const createOne=(d)=>Category.create(d); export const updateById=(id,d)=>Category.findByIdAndUpdate(id,d,{new:true}); export const deleteById=(id)=>Category.findByIdAndDelete(id);
