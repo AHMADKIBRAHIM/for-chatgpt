@@ -1,0 +1,1 @@
+import { Router } from "express"; import multer from "multer"; import { asyncHandler } from "../../shared/utils/asyncHandler.js"; import { uploadSingleController } from "./upload.controller.js"; const upload=multer({dest:"uploads/"}); const r=Router(); r.post("/single",upload.single("file"),asyncHandler(uploadSingleController)); export default r;

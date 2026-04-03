@@ -1,0 +1,1 @@
+import * as repo from "./users.repository.js"; export const getAll=()=>repo.findAll(); export const getOne=(id)=>repo.findById(id); export const create=(data)=>repo.createOne(data); export const update=(id,data)=>repo.updateById(id,data); export const remove=(id)=>repo.deleteById(id);

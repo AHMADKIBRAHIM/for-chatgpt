@@ -1,0 +1,1 @@
+import { Link } from "react-router-dom"; export default function Sidebar(){return <aside style={{width:220,background:"#111827",color:"#fff",padding:16}}><h3>POS</h3><nav style={{display:"grid",gap:8}}><Link to="/pos">POS</Link><Link to="/kitchen">Kitchen</Link><Link to="/admin">Admin</Link></nav></aside>;}

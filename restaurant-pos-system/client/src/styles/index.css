@@ -1,0 +1,3 @@
+@import './variables.css';
+*{box-sizing:border-box}body{margin:0;font-family:Arial,sans-serif;background:var(--bg)}
+a{color:inherit;text-decoration:none}.container{padding:1rem}.card{background:#fff;border:1px solid var(--border);border-radius:12px;padding:1rem}.btn{background:var(--primary);color:#fff;border:none;padding:.6rem 1rem;border-radius:8px;cursor:pointer}

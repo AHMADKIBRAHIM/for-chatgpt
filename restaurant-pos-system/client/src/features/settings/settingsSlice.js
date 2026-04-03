@@ -1,0 +1,1 @@
+import { createSlice } from "@reduxjs/toolkit"; const slice=createSlice({name:"settings",initialState:{items:[],status:"idle",error:null},reducers:{setItems:(s,a)=>{s.items=a.payload;},setStatus:(s,a)=>{s.status=a.payload;},setError:(s,a)=>{s.error=a.payload;}}}); export const {setItems,setStatus,setError}=slice.actions; export default slice.reducer;

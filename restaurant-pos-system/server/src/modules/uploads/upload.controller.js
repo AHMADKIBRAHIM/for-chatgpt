@@ -1,0 +1,1 @@
+import { StatusCodes } from "http-status-codes"; import { apiResponse } from "../../shared/utils/apiResponse.js"; import { uploadFile } from "./upload.service.js"; export const uploadSingleController=async(req,res)=>apiResponse(res,StatusCodes.CREATED,"Uploaded",await uploadFile(req.file));

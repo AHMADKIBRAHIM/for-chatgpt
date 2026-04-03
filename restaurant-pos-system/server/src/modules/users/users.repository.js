@@ -1,0 +1,1 @@
+import User from "./user.model.js"; export const findAll=()=>User.find(); export const findById=(id)=>User.findById(id); export const createOne=(d)=>User.create(d); export const updateById=(id,d)=>User.findByIdAndUpdate(id,d,{new:true}); export const deleteById=(id)=>User.findByIdAndDelete(id);

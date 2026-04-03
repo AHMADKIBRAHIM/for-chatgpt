@@ -1,0 +1,1 @@
+import Sidebar from "./Sidebar"; import Topbar from "./Topbar"; export default function AppLayout({children}){return <div style={{display:"grid",gridTemplateColumns:"220px 1fr",minHeight:"100vh"}}><Sidebar/><div><Topbar/><main className="container">{children}</main></div></div>;}

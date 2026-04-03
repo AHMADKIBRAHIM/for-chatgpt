@@ -1,0 +1,1 @@
+import Payment from "./payment.model.js"; export const findAll=()=>Payment.find(); export const findById=(id)=>Payment.findById(id); export const createOne=(d)=>Payment.create(d); export const updateById=(id,d)=>Payment.findByIdAndUpdate(id,d,{new:true}); export const deleteById=(id)=>Payment.findByIdAndDelete(id);

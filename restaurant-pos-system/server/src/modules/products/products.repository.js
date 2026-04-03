@@ -1,0 +1,1 @@
+import Product from "./product.model.js"; export const findAll=()=>Product.find(); export const findById=(id)=>Product.findById(id); export const createOne=(d)=>Product.create(d); export const updateById=(id,d)=>Product.findByIdAndUpdate(id,d,{new:true}); export const deleteById=(id)=>Product.findByIdAndDelete(id);
